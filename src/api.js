@@ -1,5 +1,5 @@
 // Base url
-const base_url = 'https://api.rawgio/api/games';
+const base_url = 'https://api.rawg.io/api/';
 
 // get month
 const getCurrentMonth = () => {
@@ -13,7 +13,7 @@ const getCurrentMonth = () => {
 
 // get day
 const getCurrentDay = () => {
-    const month = new Date().getDate() + 1;
+    const day = new Date().getDate() + 1;
     if (day < 10) {
         return `0${day}`
     } else {
@@ -30,4 +30,8 @@ const lastYear = `${currentMonth}/${currentDay}/${currentYear - 1}`;
 const nextYear = `${currentMonth}/${currentDay}/${currentYear + 1}`;
 
 // Popular games
-const popular_games = 'https://api.rawg.io/api/games?dates=2020'
+const popular_games = `games?dates${lastYear},${currentDate}&ordering=-rating$page_size=10`
+
+const popularGamesURL = () => `${base_url}${popular_games}`;
+
+console.log(popularGamesURL());
