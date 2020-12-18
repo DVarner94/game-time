@@ -6,7 +6,7 @@ import { loadGames } from './actions/gamesAction'
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadGames);
+    dispatch(loadGames());
   });
   return (
     <div className="App">
