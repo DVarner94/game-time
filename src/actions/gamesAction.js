@@ -5,7 +5,12 @@ import { popularGamesURL } from '../api';
 
 export const loadGames = () => async (dispatch) => {
     // fetch axios
-    return {
-        type:
-    }
+    const popularData = await axios.get(popularGamesURL())
+    dispatch({
+        type: 'FETCH_Games',
+        payload: {
+            popular: popularData,
+        }
+    })
 }
+
